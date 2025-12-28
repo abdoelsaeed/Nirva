@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+
+@layer utilities {
+  @media (min-width: 1025px) and (max-width: 1300px) {
+    /* height full viewport */
+    .mid\:h-screen { height: 100vh; }
+
+    /* make image cover the area */
+    .mid\:object-cover { object-fit: cover; }
+
+    /* remove max-width constraint if present */
+    .mid\:max-w-none { max-width: none; }
+
+    /* vertically center flex children if needed */
+    .mid\:items-center { align-items: center; }
+
+    /* if you need to remove padding on that range */
+    .mid\:px-0 { padding-left: 0; padding-right: 0; }
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #e0e1dd;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e1dd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8ab1db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1672d4;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8ab1db #e0e1dd;
+}
+
+/* Custom Cursor - Blue Arrow */
+* {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M2 2 L2 18 L8 12 L12 12 L2 2 Z" fill="%238AB1DB"/></svg>'),
+    auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M2 2 L2 18 L8 12 L12 12 L2 2 Z" fill="%231672D4"/></svg>'),
+    pointer;
+}
+
+input,
+textarea,
+[contenteditable] {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M8 2 L8 18 M2 8 L18 8" stroke="%238AB1DB" stroke-width="2" fill="none"/></svg>'),
+    text;
+}
+
+/* Coming Soon Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  -webkit-animation: shimmer 2s infinite;
+  -moz-animation: shimmer 2s infinite;
+  -o-animation: shimmer 2s infinite;
+}
+
+/* Browser Compatibility Fixes */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(4px);
+  -moz-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes borderSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+.animated-border {
+  position: relative;
+  isolation: isolate;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  background: linear-gradient(    90deg,    #b6bfce,    #eae2ff,    #edbbd4,    #eedcbd,    #c6d9f8  );
+  background-size: 400%;
+  border-radius: 1.75rem;
+  animation: borderSlide 8s linear infinite;
+  transition: transform 0.3s ease-in-out;
+  -webkit-animation: borderSlide 8s linear infinite;
+}
+
+.animated-border:hover::before {
+  transform: scale(1.02);
+}
+
+/* تحسين الأزرار */
+.custom-button {
+  transition: all 0.3s ease;
+  transform: perspective(1px) translateZ(0);
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

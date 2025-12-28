@@ -1,0 +1,29 @@
+.logo{
+    /* A */
+    width: 80px;
+    height: 36px;
+    font-family: "Kalnia", serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 100%;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+/* Responsive logo sizes */
+@media (min-width: 640px) {
+    .logo {
+        width: 90px;
+        height: 40px;
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo {
+        width: 106px;
+        height: 48px;
+        font-size: 36px;
+    }
+}
